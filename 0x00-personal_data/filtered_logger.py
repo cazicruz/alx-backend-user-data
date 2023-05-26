@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """filtered_logger module"""
 import logging
-import re
+import re, os, mysql.connector
 from typing import List
 
 class RedactingFormatter(logging.Formatter):
@@ -43,3 +43,12 @@ def get_logger() -> logging.Logger:
     handler.setFormatter(RedactingFormatter(list(PII_FIELDS)))
     logger.addHandler(handler)
     return logger
+
+def get_db() -> mysql.connector.connection.MySQLConnection:
+    """returns a connector to the database"""
+    connector = mysql.connector.connect(
+        user=os.environ.get("PERSONAL_DATA_DB_USERNAME", default="root"),
+        password=os.environ.get("PERSONAL_DATA_DB_PASSWORD", default=""),
+        host=os.environ.get("PERSONAL_DATA_DB_HOST", default="localhost"),
+        database=os.environ.get("PERSONAL_DATA_DB_NAME"))
+    return connector
