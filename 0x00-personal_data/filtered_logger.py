@@ -30,3 +30,16 @@ def filter_datum(fields: List[str], redaction: str, message: str, separator: str
         message = re.sub(field + "=.*?" + separator,
                          field + "=" + redaction + separator, message)
     return message
+
+
+PII_FIELDS = ("name", "email", "phone", "ssn", "password")
+
+def get_logger() -> logging.Logger:
+    """returns a logging.Logger object"""
+    logger = logging.getLogger("user_data")
+    logger.setLevel(logging.INFO)
+    logger.propagate = False
+    handler = logging.StreamHandler()
+    handler.setFormatter(RedactingFormatter(list(PII_FIELDS)))
+    logger.addHandler(handler)
+    return logger
