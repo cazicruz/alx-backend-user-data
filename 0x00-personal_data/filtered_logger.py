@@ -1,8 +1,11 @@
 #!/usr/bin/env python3
 """filtered_logger module"""
 import logging
-import re, os, mysql.connector
+import re
+import os
+import mysql.connector
 from typing import List
+
 
 class RedactingFormatter(logging.Formatter):
     """ Redacting Formatter class
@@ -25,7 +28,9 @@ class RedactingFormatter(logging.Formatter):
             super(RedactingFormatter, self).format(record),
             self.SEPARATOR)
 
-def filter_datum(fields: List[str], redaction: str, message: str, separator: str) -> str:
+
+def filter_datum(fields: List[str], redaction: str,
+        message: str, separator: str) -> str:
     """returns the log message obfuscated"""
     for field in fields:
         message = re.sub(field + "=.*?" + separator,
@@ -34,6 +39,7 @@ def filter_datum(fields: List[str], redaction: str, message: str, separator: str
 
 
 PII_FIELDS = ("name", "email", "phone", "ssn", "password")
+
 
 def get_logger() -> logging.Logger:
     """returns a logging.Logger object"""
@@ -45,6 +51,7 @@ def get_logger() -> logging.Logger:
     logger.addHandler(handler)
     return logger
 
+
 def get_db() -> mysql.connector.connection.MySQLConnection:
     """returns a connector to the database"""
     connector = mysql.connector.connect(
@@ -53,6 +60,7 @@ def get_db() -> mysql.connector.connection.MySQLConnection:
         host=os.environ.get("PERSONAL_DATA_DB_HOST", default="localhost"),
         database=os.environ.get("PERSONAL_DATA_DB_NAME"))
     return connector
+
 
 def main():
     """takes no arguments and returns nothing"""
