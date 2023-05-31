@@ -1,5 +1,3 @@
-#!/usr/bin/env python3
-""" auth class"""
 from flask import request
 
 
