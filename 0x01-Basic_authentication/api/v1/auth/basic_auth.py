@@ -1,4 +1,4 @@
-#!/usr/bin/env pyhton3
+#!/usr/bin/env python3
 """ basic http authentication class"""
 from .auth import Auth
 from flask import request
