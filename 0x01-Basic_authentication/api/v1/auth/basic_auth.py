@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """ basic http authentication class"""
-import base
+import base64
 from .auth import Auth
 from typing import TypeVar
 
