@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
 """ basic http authentication class"""
+import base64
 from .auth import Auth
 from flask import request
-from typing import List, TypeVar
-import base64
+from typing import TypeVar
 
 from moddels.user import User
 
