@@ -8,6 +8,7 @@ class Auth():
     """Auth class
     """
 
+
     def require_auth(self, path: str, excluded_paths: List[str]) -> bool:
         """Require auth
         """
@@ -24,7 +25,8 @@ class Auth():
                 if path.startswith(i):
                     return False
         return True
-    
+
+
     def authorization_header(self, request=None) -> str:
         """Authorization header
         """
@@ -33,7 +35,7 @@ class Auth():
         if 'Authorization' not in request.headers:
             return None
         return request.headers.get('Authorization')
-    
+
 
     def current_user(self, request=None) -> str:
         """ current user"""
