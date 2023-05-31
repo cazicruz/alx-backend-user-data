@@ -35,5 +35,7 @@ class Auth():
         return request.headers.get('Authorization')
     
     def current_user(self, request=None) -> str:
-        """ current user"""
+        """
+        Returns a User instance from information from a request object
+        """
         return None
