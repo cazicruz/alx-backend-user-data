@@ -5,6 +5,9 @@ from flask import request
 from typing import List
 import base64
 
+from moddels.user import User
+
+
 class BasicAuth(Auth):
     """BasicAuth class
     """
