@@ -10,10 +10,6 @@ from moddels.user import User
 class BasicAuth(Auth):
     """BasicAuth class
     """
-    def __init__(self) -> None:
-        """init
-        """
-        pass
 
 
     def extract_base64_authorization_header(self,
