@@ -27,7 +27,7 @@ class BasicAuth(Auth):
             return None
         if not authorization_header.startswith("Basic "):
             return None
-        return authorization_header[6:]
+        return authorization_header.split(" ")[-1]
 
 
     def decode_base64_authorization_header(self,
@@ -73,10 +73,13 @@ class BasicAuth(Auth):
         if user_pwd is None or type(user_pwd) != str:
             return None
         try:
-            user = User()
-            user.email = user_email
-            user._password = user_pwd
-            return user
+            users = User.search({"email": user_email})
+            if not users or users == []:
+                return None
+            for u in users:
+                if u.is_valid_password(user_pwd):
+                    return u
+            return None
         except Exception:
             return None
 
