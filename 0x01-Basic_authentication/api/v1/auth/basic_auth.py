@@ -1,6 +1,6 @@
 #!/usr/bin/env pyhton3
 """ basic http authentication class"""
-from auth import Auth
+from .auth import Auth
 from flask import request
 from typing import List
 import base64
