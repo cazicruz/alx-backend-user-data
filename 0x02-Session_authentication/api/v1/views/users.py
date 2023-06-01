@@ -107,6 +107,11 @@ def update_user(user_id: str = None) -> str:
     user = User.get(user_id)
     if user is None:
         abort(404)
+    if user_id is me:
+        if request.current_user is None:
+            abort(404)
+        if request.cuttent_user is !None:
+            pass
     rj = None
     try:
         rj = request.get_json()
