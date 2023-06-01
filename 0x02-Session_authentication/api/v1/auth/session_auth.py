@@ -6,5 +6,4 @@ import os
 
 class SessionAuth(Auth):
     """ implementation of session authentication"""
-    def __init__(self):
-        super().__init__()
+    pass
