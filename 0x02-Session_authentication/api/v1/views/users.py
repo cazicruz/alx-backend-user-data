@@ -30,6 +30,10 @@ def view_one_user(user_id: str = None) -> str:
     user = User.get(user_id)
     if user is None:
         abort(404)
+    if user_id is me and request.current_user is None:
+        abort(404)
+     if user_id is me and request.current_user is not None:
+         pass
     return jsonify(user.to_json())
 
 
@@ -106,8 +110,6 @@ def update_user(user_id: str = None) -> str:
         abort(404)
     user = User.get(user_id)
     if user is None:
-        abort(404)
-    if user_id is me and request.current_user is None:
         abort(404)
     rj = None
     try:
