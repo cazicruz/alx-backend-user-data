@@ -34,6 +34,7 @@ def before_request():
         return
     excluded_paths = ['/api/v1/status/',
                       '/api/v1/unauthorized/',
+                      '/api/v1/auth_session/login/',
                       '/api/v1/forbidden/']
     if not auth.require_auth(request.path, excluded_paths):
         return
@@ -41,8 +42,10 @@ def before_request():
         abort(401, description="Unauthorized")
     if auth.current_user(request) is None:
         abort(403, description="Forbidden")
+    if (auth.authorization_header(request) is None and
+        auth.session_cookie(request) is None):
+        abort(401, description="Not found")
     request.current_user = auth.current_user(request)
-
 
 @app.errorhandler(404)
 def not_found(error) -> str:
