@@ -15,8 +15,8 @@ def auth_session():
     Return:
         dictionary representation of user if found else error message
     """
-    password = request.get('password')
-    email = request.get('email')
+    password = request.form.get('password')
+    email = request.form.get('email')
     if email is None or email == '':
         return jsonify({"error": "email missing"}), 400
     if password is None or password == '':
