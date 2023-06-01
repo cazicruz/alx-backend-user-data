@@ -119,10 +119,4 @@ def update_user(user_id: str = None) -> str:
     if rj.get('last_name') is not None:
         user.last_name = rj.get('last_name')
     user.save()
-    if user_id is me:
-        if request.current_user is None:
-            abort(404)
-        if request.cuttent_user is !None:
-            pass
-
     return jsonify(user.to_json()), 200
