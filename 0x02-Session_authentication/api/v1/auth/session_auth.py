@@ -3,6 +3,7 @@
 from .auth import Auth
 import os
 import uuid
+from models.user import User
 
 
 class SessionAuth(Auth):
@@ -33,4 +34,5 @@ class SessionAuth(Auth):
         if request is None:
             return None
         session_id_from_cookie = self.session_cookie(request)
-        return self.user_id_for_session_id(session_id_from_cookie)
+        user_id = self.user_id_for_session_id(session_id_from_cookie)
+        return User.get(user_id)
