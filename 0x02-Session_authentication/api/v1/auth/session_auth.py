@@ -19,7 +19,7 @@ class SessionAuth(Auth):
 
 
     def user_id_for_session_id(self, session_id: str = None) -> str:
-        """retrieves the value (user id) stored in 
+        """retrieves the value (user id) stored in
         user_id_by_session_id with the key (session id)
         and returns it
         """
