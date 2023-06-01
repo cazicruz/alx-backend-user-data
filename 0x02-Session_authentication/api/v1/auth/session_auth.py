@@ -9,10 +9,10 @@ class SessionAuth(Auth):
         super().__init__()
 
 
- use_session_auth = os.getenv("USE_SESSION_AUTH", False)
-    if use_session_auth:
-        # Use SessionAuth
-        auth = SessionAuth()
-    else:
-        # Use default Auth
-        auth = Auth()
+use_session_auth = os.getenv("USE_SESSION_AUTH", False)
+   if use_session_auth:
+       # Use SessionAuth
+       auth = SessionAuth()
+   else:
+       # Use default Auth
+       auth = Auth()
