@@ -8,7 +8,9 @@ import uuid
 class SessionAuth(Auth):
     """ implementation of session authentication"""
     user_id_by_session_id = {}
+
     def create_session(self, user_id: str = None) -> str:
+        """ creates a session id for the user"""
         if user_id is None or type(user_id) != str:
             return None
         session_id = str(uuid.uuid4())
