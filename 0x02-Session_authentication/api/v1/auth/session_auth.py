@@ -1,4 +1,4 @@
-#!/usr/bin/env pyhton3
+#!/usr/bin/env python3
 """ session_authentication"""
 from .auth import Auth
 import os
