@@ -123,6 +123,6 @@ def update_user(user_id: str = None) -> str:
         if request.current_user is None:
             abort(404)
         if request.cuttent_user is !None:
-            return jsonify(user.to_json()), 200
+            pass
 
     return jsonify(user.to_json()), 200
