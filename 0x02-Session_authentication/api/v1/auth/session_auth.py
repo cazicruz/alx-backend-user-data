@@ -22,6 +22,6 @@ class SessionAuth(Auth):
         user_id_by_session_id with the key (session id)
         and returns it
         """
-        if user_id is None or type(user_id) != str:
+        if session_id is None or type(session_id) != str:
             return None
         return user_id_by_session_id.get(session_id)
