@@ -5,14 +5,6 @@ import os
 
 
 class SessionAuth(Auth):
+    """ implementation of session authentication"""
     def __init__(self):
         super().__init__()
-
-
-use_session_auth = os.getenv("USE_SESSION_AUTH", False)
-   if use_session_auth:
-       # Use SessionAuth
-       auth = SessionAuth()
-   else:
-       # Use default Auth
-       auth = Auth()
