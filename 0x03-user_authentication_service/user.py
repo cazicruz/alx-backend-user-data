@@ -11,14 +11,14 @@ from sqlalchemy import (
 Base = declarative_base()
 
 
-class User(db.Model):
+class User(Base):
     """
     definition of the class user
     """
     __tablename__ = 'users'
 
-    id = db.Column(db.Integer, primary_key=True)
-    email = db.Column(db.String(250), nullable=False)
-    hashed_password = db.Column(db.String(250), nullable=False)
-    session_id = db.Column(db.String(250), nullable=True)
-    reset_token =  db.Column(db.String(250), nullable=True)
+    id = Column(Integer, primary_key=True)
+    email = Column(String(250), nullable=False)
+    hashed_password = Column(String(250), nullable=False)
+    session_id = Column(String(250), nullable=True)
+    reset_token = Column(String(250), nullable=True)
