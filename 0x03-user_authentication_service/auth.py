@@ -28,10 +28,12 @@ class Auth:
         self._db = DB()
 
     def register_user(self, email: str, password: str) -> dict:
-        usr = self_db.find_user_by(email=email)
-        if usr:
-            raise ValueError(f"user {email} already exists")
-        else:
+        """ a class to register new users with the methods from DB
+        and raise error if user already exist"""
+        try:
+            usr = self_db.find_user_by(email=email)
+        except NoResultFound:
             hashpwd = _hash_password(password)
             user = self._db.add_user(email, hashpwd)
             return user
+         raise ValueError(f"user {email} already exists")
