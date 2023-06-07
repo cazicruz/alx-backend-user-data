@@ -8,6 +8,9 @@ app.config["SECRETE_KEY"] = "hardtoguess"
 
 @app.route("/", methods=['GET'], strict_slashs=False)
 def index():
+    """Return json respomse
+    {"message": "Bienvenue"}
+    """
     payload = {"message": "Bienvenue"}
     return jsonify(payload)
 
