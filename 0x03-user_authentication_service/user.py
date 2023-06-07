@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 """SQLAlchemy model named User for a database table named users (by using the mapping declaration of SQLAlchemy)."""
 
+from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
 import os
 
