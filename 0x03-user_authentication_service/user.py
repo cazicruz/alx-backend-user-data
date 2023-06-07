@@ -1,17 +1,14 @@
 #!/usr/bin/env python3
-"""SQLAlchemy model named User for a database table named users (by using the mapping declaration of SQLAlchemy)."""
+"""SQLAlchemy model named User for a database table named users (by using the mapping declaration of SQLAlchemy)"""
 
-from flask import Flask
-from flask_sqlalchemy import SQLAlchemy
-import os
+from sqlalchemy.ext.declarative import declarative_base
+from sqlalchemy import (
+    Column,
+    Integer,
+    String,
+)
 
-app = Flask(__name__)
-app.config['SECFRET_KEY'] = 'hardtoguess'
-basedir = os.path.abspath(os.path.dirname(__file__))
-
-app.config['SQLALCHEMY_DATABASE_URI'] = \
-        'sqlite:///' + os.path.join(basedir, 'database.db')
-db = SQLAlchemy(app)
+Base = declarative_base()
 
 
 class User(db.Model):
