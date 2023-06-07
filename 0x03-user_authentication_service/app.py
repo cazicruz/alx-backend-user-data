@@ -6,7 +6,7 @@ from flask import Flask, jsonify
 app = Flask(__name__)
 app.config["SECRETE_KEY"] = "hardtoguess"
 
-@app.route("/", mathods=['GET'], strict_slashs=False)
+@app.route("/", methods=['GET'], strict_slashs=False)
 def get_payload():
     payload = {"message": "Bienvenue"}
     return jsonify(payload)
