@@ -10,11 +10,11 @@ app.config['SECFRET_KEY'] = 'hardtoguess'
 basedir = os.path.abspath(os.path.dirname(__file__))
 
 app.config['SQLALCHEMY_DATABASE_URI'] = \
-        'sqlite:///' + os.path.join(bassedir, 'database.db')
+        'sqlite:///' + os.path.join(basedir, 'database.db')
 db = SQLAlchemy(app)
 
 
-class Users(db.Model):
+class User(db.Model):
     """
     definition of the class user
     """
