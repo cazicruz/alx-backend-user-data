@@ -2,6 +2,7 @@
 """
 designing the auth module
 """
+from db import DB
 import bcrypt
 
 
@@ -18,3 +19,19 @@ def _hash_password(password: str) -> bytes:
     salt = bcrpyt.gensalt() #creates salt to hash password with
     hashedpwd = bcrypt.hashpw(password, salt)
     return hashedpwd
+
+class Auth:
+    """Auth class to interact with the authentication database.
+    """
+
+    def __init__(self):
+        self._db = DB()
+
+    def register_user(self, email: str, password: str) -> dict:
+        usr = self_db.find_user_by(email=email)
+        if usr:
+            raise ValueError(f"user {email} already exists")
+        else:
+            hashpwd = _hash_password(password)
+            user = self._db.add_user(email, hashpwd)
+            return user
