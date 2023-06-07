@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
 """SQLAlchemy model named User for a database table named users (by using the mapping declaration of SQLAlchemy)."""
+
 from flask_sqlalchemy import SQLAlchemy
 import os
-
 
 app = Flask(__name__)
 app.config['SECFRET_KEY'] = 'hardtoguess'
@@ -11,6 +11,7 @@ basedir = os.path.abspath(os.path.dirname(__file__))
 app.config['SQLALCHEMY_DATABASE_URI'] = \
         'sqlite:///' + os.path.join(bassedir, 'database.db')
 db = SQLAlchemy(app)
+
 
 class Users(db.Model):
     """
