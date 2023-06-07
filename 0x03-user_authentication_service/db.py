@@ -38,7 +38,7 @@ class DB:
             hashed_password (str): password hashed by bcrypt's hashpw
         Return: newly created user object
         """
-        user = User(email=email,hashed_password=hashed_password)
+        user = User(email=email, hashed_password=hashed_password)
         self._session.add(user)
         self._session.commit()
         return user
