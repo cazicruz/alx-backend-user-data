@@ -28,6 +28,9 @@ def index() -> str:
 
 @app.route("/users", methods=["post"], strict_slashes=False)
 def users():
+    """
+    route to creates new user and add them to the database
+    """
     email = request.form.get(email)
     password = request.form.get(password)
     try:
