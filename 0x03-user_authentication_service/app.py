@@ -11,8 +11,7 @@ def index() -> str:
     """Return json respomse
     {"message": "Bienvenue"}
     """
-    payload = {"message": "Bienvenue"}
-    return jsonify(payload)
+    return jsonify({"message": "Bienvenue"})
 
 
 if __name__ == "__main__":
