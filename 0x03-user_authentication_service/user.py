@@ -13,9 +13,13 @@ app.config['SQLALCHEMY_DATABASE_URI'] = \
 db = SQLAlchemy(app)
 
 class Users(db.Model):
+    """
+    definition of the class user
+    """
     __tablename__ = 'users'
+
     id = db.Column(db.Integer, primary_key=True)
-    email = db.Column(db.Varchar(250), nullable=False)
-    hashed_password = db.Column(db.Varchar(250), nullable=False)
-    session_id = db.Column(db.Varchar(250), nullable=True)
-    reset_token =  db.Column(db.Varchar(250), nullable=True)
+    email = db.Column(db.String(250), nullable=False)
+    hashed_password = db.Column(db.String(250), nullable=False)
+    session_id = db.Column(db.String(250), nullable=True)
+    reset_token =  db.Column(db.String(250), nullable=True)
