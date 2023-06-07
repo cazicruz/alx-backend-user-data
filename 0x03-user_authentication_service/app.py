@@ -11,10 +11,8 @@ from flask import (
     url_for
 )
 
-from auth import Auth
 
 app = Flask(__name__)
-AUTH = Auth()
 
 
 @app.route("/", methods=["GET"], strict_slashes=False)
