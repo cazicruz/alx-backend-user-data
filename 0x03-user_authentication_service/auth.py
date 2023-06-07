@@ -31,7 +31,7 @@ class Auth:
         """ a class to register new users with the methods from DB
         and raise error if user already exist"""
         try:
-            usr = self_db.find_user_by(email=email)
+            usr = self._db.find_user_by(email=email)
         except NoResultFound:
             hashpwd = _hash_password(password)
             user = self._db.add_user(email, hashpwd)
