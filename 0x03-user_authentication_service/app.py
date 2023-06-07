@@ -7,7 +7,7 @@ app = Flask(__name__)
 app.config["SECRETE_KEY"] = "hardtoguess"
 
 @app.route("/", methods=['GET'], strict_slashs=False)
-def get_payload():
+def index():
     payload = {"message": "Bienvenue"}
     return jsonify(payload)
 
