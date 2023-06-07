@@ -14,8 +14,8 @@ db = SQLAlchemy(app)
 
 class Users(db.Model):
     __tablename__ = 'users'
-    id = db.column(db.Integer, primary_key=True)
-    email = db.column(db.String(120), nullable=False)
-    hashed_password = db.column(db.String(240), nullable=False)
-    session_id = db.column(db.String(120, nullable=True)
-    reset_token =  db.column(db.String(120), nullable=True)
+    id = db.Column(db.Integer, primary_key=True)
+    email = db.Column(db.Varchar(250), nullable=False)
+    hashed_password = db.Column(db.Varchar(250), nullable=False)
+    session_id = db.Column(db.Varchar(250), nullable=True)
+    reset_token =  db.Column(db.Varchar(250), nullable=True)
